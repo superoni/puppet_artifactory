@@ -2,7 +2,6 @@
 
 # Define Artifactory Configuration
 ARTIFACTORY_BASE=
-URL_BASE=/artifactory
 
 usage()
 {
@@ -195,7 +194,7 @@ then
 fi
 
 # Construct the base URL
-ARTIFACT_BASE_URL=${ARTIFACTORY_BASE}${URL_BASE}/${REPO}/${GROUP_ID}/${ARTIFACT_ID}/${VERSION}
+ARTIFACT_BASE_URL=${ARTIFACTORY_BASE}/${REPO}/${GROUP_ID}/${ARTIFACT_ID}/${VERSION}
 ARTIFACT_TARGET_NAME=$( artifact_target_name ${ARTIFACT_ID} ${VERSION} ${PACKAGING} ${CLASSIFIER} )
 
 if [[ "${VERSION}" =~ "SNAPSHOT" ]] && [[ ${TIMESTAMPED_SNAPSHOT} -ne 0 ]]

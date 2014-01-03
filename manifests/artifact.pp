@@ -19,9 +19,10 @@
 #
 # Sample Usage:
 #   class artifactory {
-#     url      => 'http://artifactory.domain.com:8081',
-#     username => 'user',
-#     password => 'password',
+#     url      		=> 'http://artifactory.domain.com:8081',
+#     context_path	=> '/artifactory',
+#     username 		=> 'user',
+#     password 		=> 'password',
 #   }
 #
 #   artifactory::artifact {'Zabbix JMX client':

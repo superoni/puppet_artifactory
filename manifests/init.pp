@@ -12,13 +12,15 @@
 #
 # Sample Usage:
 #  class artifactory {
-#   url      => 'http://artifactory.domain.com:8081',
-#   username => 'user',
-#   password => 'password',
+#     url      		=> 'http://artifactory.domain.com:8081',
+#     context_path	=> '/artifactory',
+#     username 		=> 'user',
+#     password 		=> 'password',
 # }
 #
 class artifactory(
   $url = '',
+  $context_path = '',
   $username = '',
   $password = '')
 {
@@ -28,7 +30,7 @@ class artifactory(
   if $url == '' {
     fail('Cannot initialize the Artifactory class - the url parameter is mandatory')
   }
-  $ARTIFACTORY_URL = $url
+  $ARTIFACTORY_URL = "${url}${context_path}"
 
   if ($username != '') and ($password == '') {
     fail('Cannot initialize the Artifactory class - both username and password must be set')
